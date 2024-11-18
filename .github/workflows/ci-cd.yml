@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,11 +20,15 @@ jobs:
         run: echo "test"
         # run: echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
 
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # - name: Checkout code
+      #   uses: actions/checkout@v2
+
       - name: build
         run: echo "build"
-
-      - name: deploy
-        run: echo "deploy"
 
       # - name: Setup Node.js
       #   uses: actions/setup-node@v2
@@ -46,3 +50,13 @@ jobs:
       #     args: deploy --only hosting
       #   env:
       #     FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # - name: Checkout code
+      #   uses: actions/checkout@v2
+
+      - name: deploy
+        run: echo "deploy"
