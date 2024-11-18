@@ -1,0 +1,48 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # - name: Checkout code
+      #   uses: actions/checkout@v2
+
+      - name: test
+        run: echo "test"
+        # run: echo "::workflow-command parameter1={data},parameter2={data}::{command value}"
+
+      - name: build
+        run: echo "build"
+
+      - name: deploy
+        run: echo "deploy"
+
+      # - name: Setup Node.js
+      #   uses: actions/setup-node@v2
+      #   with:
+      #     node-version: '14'
+
+      # - name: Install dependencies
+      #   run: npm install
+
+      # - name: Run tests
+      #   run: npm test
+
+      # - name: Build
+      #   run: npm run build
+
+      # - name: Deploy to Firebase
+      #   uses: w9jds/firebase-action@master
+      #   with:
+      #     args: deploy --only hosting
+      #   env:
+      #     FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
